@@ -36,5 +36,5 @@ Imports:
     utils
 Config/testthat/edition: 3
 VignetteBuilder: knitr
-URL: https://github.com/filippogambarota/clustersimulation
-BugReports: https://github.com/filippogambarota/clustersimulation/issues
+URL: https://psicostat.github.io/clustersimulation/
+BugReports: https://psicostat.github.io/clustersimulation/issues
