@@ -1,0 +1,52 @@
+---
+title: "simulation-example"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{simulation-example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(clustersimulation)
+```
+
+# Simulating from parameters
+
+```{r}
+sim_from_params <- run_simulation(niter = 100,
+                                  maxt = 5, 
+                                  type = "power", 
+                                  method = "kmeans", 
+                                  dmin = 0.5, 
+                                  rmin = 0.5,
+                                  n = 50,
+                                  nind = 3,
+                                  progress = FALSE)
+```
+
+# Simulating from user data
+
+```{r}
+sim <- sim_clust(nclust = 2, n = 100, dmin = 5, rmin = 0, nind = 2)
+
+dat <- clustersimulation:::.get_inds(sim)
+dat <- clustersimulation:::.check_data(dat)
+udata <- prep_user_data(dat)
+
+sim_from_udata <- run_simulation(niter = 100,
+                                 maxt = 5, 
+                                 type = "power", 
+                                 method = "kmeans", 
+                                 dmin = 0.5, 
+                                 udata = udata,
+                                 progress = FALSE)
+```
+

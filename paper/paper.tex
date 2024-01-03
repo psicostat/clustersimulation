@@ -1,0 +1,734 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  man,floatsintext]{apa6}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+% Manuscript styling
+\usepackage{upgreek}
+\captionsetup{font=singlespacing,justification=justified}
+
+% Table formatting
+\usepackage{longtable}
+\usepackage{lscape}
+% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
+\usepackage{multirow}		% Table styling
+\usepackage{tabularx}		% Control Column width
+\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
+\usepackage{threeparttablex}            % Lets threeparttable work with longtable
+
+% Create new environments so endfloat can handle them
+% \newenvironment{ltable}
+%   {\begin{landscape}\centering\begin{threeparttable}}
+%   {\end{threeparttable}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\centering\begin{ThreePartTable}}{\end{ThreePartTable}\end{landscape}}
+
+% Enables adjusting longtable caption width to table width
+% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
+\makeatletter
+\newcommand\LastLTentrywidth{1em}
+\newlength\longtablewidth
+\setlength{\longtablewidth}{1in}
+\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
+
+% \setlength{\parindent}{0.5in}
+% \setlength{\parskip}{0pt plus 0pt minus 0pt}
+
+% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
+% See https://github.com/crsh/papaja/issues/292
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-\z@\relax}%
+  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
+\makeatletter
+\usepackage{etoolbox}
+\patchcmd{\maketitle}
+  {\section{\normalfont\normalsize\abstractname}}
+  {\section*{\normalfont\normalsize\abstractname}}
+  {}{\typeout{Failed to patch abstract.}}
+\patchcmd{\maketitle}
+  {\section{\protect\normalfont{\@title}}}
+  {\section*{\protect\normalfont{\@title}}}
+  {}{\typeout{Failed to patch title.}}
+\makeatother
+
+\usepackage{xpatch}
+\makeatletter
+\xapptocmd\appendix
+  {\xapptocmd\section
+    {\addcontentsline{toc}{section}{\appendixname\ifoneappendix\else~\theappendix\fi\\: #1}}
+    {}{\InnerPatchFailed}%
+  }
+{}{\PatchFailed}
+\keywords{cluster analysis; machine learning; k-means; mixture models; data simulation\newline\indent Word count: X}
+\DeclareDelayedFloatFlavor{ThreePartTable}{table}
+\DeclareDelayedFloatFlavor{lltable}{table}
+\DeclareDelayedFloatFlavor*{longtable}{table}
+\makeatletter
+\renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
+\makeatother
+\usepackage{csquotes}
+\usepackage{setspace}
+\captionsetup[figure]{font={stretch=1,footnotesize}}
+\usepackage{float}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{orcidlink}
+\usepackage{xcolor}
+\newcommand{\rev}{\color{red}}
+\newcommand{\erev}{\color{black}}
+\usepackage[normalem]{ulem}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Clusters that are not there: An R tutorial and a Shiny app to quantify a priori inferential risks when using clustering methods},
+  pdfauthor={Enrico Toffalini1, Filippo Gambarota2, Ambra Perugini2, Paolo Girardi3, Valentina Tobia4, Gianmarco Altoè2, David Giofrè5, Psicostat core team2, \& Tommaso Feraco1},
+  pdflang={en-EN},
+  pdfkeywords={cluster analysis; machine learning; k-means; mixture models; data simulation},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{\textbf{Clusters that are not there: An R tutorial and a Shiny app to quantify a priori inferential risks when using clustering methods}}
+\author{Enrico Toffalini\textsuperscript{1}, Filippo Gambarota\textsuperscript{2}, Ambra Perugini\textsuperscript{2}, Paolo Girardi\textsuperscript{3}, Valentina Tobia\textsuperscript{4}, Gianmarco Altoè\textsuperscript{2}, David Giofrè\textsuperscript{5}, Psicostat core team\textsuperscript{2}, \& Tommaso Feraco\textsuperscript{1}}
+\date{}
+
+
+\shorttitle{Clusters that are not there}
+
+\authornote{
+
+This work was supported by \emph{Finanziamento Ministero dell'Università e della Ricerca Direzione Generale della Ricerca Ufficio III 15 dell'Unione Europea -- NextGenerationEU -- missione 4, componente 2, investimento 1.1}, reported amount €267,094.00 (Grant No.~C53D23004210006).
+
+The authors made the following contributions. Enrico Toffalini: Conceptualization, Writing - Original Draft Preparation, Writing - Review \& Editing; Filippo Gambarota: Conceptualization, Writing - Original Draft Preparation, Writing - Review \& Editing, Shiny app design \& implementation; Ambra Perugini: Writing - Original Draft Preparation, Writing - Review \& Editing, Shiny app design \& implementation; Paolo Girardi: Writing - Original Draft Preparation, Writing - Review \& Editing; Valentina Tobia: Writing - Review \& Editing; Gianmarco Altoè: Writing - Review \& Editing; David Giofrè: Writing - Review \& Editing; Psicostat core team: Writing - Review \& Editing; Tommaso Feraco: Conceptualization, Writing - Original Draft Preparation, Writing - Review \& Editing, Shiny app design \& implementation.
+
+Correspondence concerning this article should be addressed to Enrico Toffalini, Via Venezia 8, 35131 Padova (PD), Italy. E-mail: \href{mailto:enrico.toffalini@unipd.it}{\nolinkurl{enrico.toffalini@unipd.it}}
+
+}
+
+\affiliation{\vspace{0.5cm}\textsuperscript{1} Department of General Psychology, University of Padova, Italy\\\textsuperscript{2} Department of Developmental Psychology and Socialization, University of Padova, Italy\\\textsuperscript{3} Department of Environmental Sciences, Informatics and Statistics - University Ca' Foscari, Venice, Italy\\\textsuperscript{4} Department of Psychology - University Vita-Salute San Raffaele, Milan, Italy\\\textsuperscript{5} DISFOR - University of Genova, Italy}
+
+\abstract{%
+Clustering methods are increasingly being used in social science research. Generally, researchers use them to infer the existence of qualitatively different types of individuals within a larger population, thus unveiling previously ``hidden'' heterogeneity. Depending on the clustering technique, however, valid inference requires some conditions and assumptions. Common risks include not only failing to detect existing clusters due to a lack of power but also, even more strikingly, revealing multiple clusters that do not exist in the population. Simple data simulations suggest that under conditions of sample size, number, correlation, and skewness of indicators that are frequently encountered in psychological research, commonly used clustering methods are at a high risk of detecting multiple clusters that are not there. Generally, this is due to some violations of assumptions that are not usually considered critical in psychology. The present article illustrates a simple R tutorial and a related Shiny app (for those who are not familiar with R) that allow researchers to quantify \emph{a priori} inferential risks when performing clustering methods on their own data. Doing so is suggested as a much-needed preliminary sanity check, since conditions that inflate the number of detected clusters are very common in actual psychological research scenarios.
+}
+
+
+
+\begin{document}
+\maketitle
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+Clustering, or cluster analysis, is a family of unsupervised machine learning methods (Kassambara, 2017) that allow researchers to group sets of observations into smaller subsets (clusters) based on some sort of similarity. In social science research, clustering is increasingly being used to ``unveil'' previously undetected subpopulations of individuals within larger samples. Ideally, clusters represent qualitatively different types of individuals whose discovery reveals hidden heterogeneity in the population. This discovery implies some inference, however, and in psychology this may be more problematic than generally believed, as we will show in the present paper.
+
+Clustering is becoming increasingly popular in psychological and social science research. A search in Scopus (December 2023) using the following query on title, abstract, and keywords: (``latent profile analysis'' OR ``lpa'' OR ``latent class analysis'' OR ``lca'' OR ``cluster analysis'' OR ``clustering'' OR ``\emph{k}-means''), with results limited to ``psychology'' and ``social sciences'' subject areas, showed that the volume of records published per year is now about 14-fold that of year 2000. By comparison, the volume of all records published per year in the same subject areas is only just over 5-fold that of year 2000 (the number of all records was approximated using the query ``∗e∗''). Results are shown in Figure \ref{fig:figure-literature-trends}.
+
+(Figure \ref{fig:figure-literature-trends} here)
+
+\begin{figure}
+
+{\centering \includegraphics{paper_files/figure-latex/figure-literature-trends-1} 
+
+}
+
+\caption{Publications per year (Scopus); see text for search queries and details.}\label{fig:figure-literature-trends}
+\end{figure}
+
+While clustering falls within the category of exploratory data analysis, we suggest that inferential risks should be considered whenever inference is made. In the case of clustering, inference can be made about the existence / the number of multiple subtypes within a larger population. In analogy with the traditional Neyman-Pearson approach to inference (Gigerenzer, Krauss, \& Vitouch, 2004), we may formalize \emph{type I} error (false-positive results) as detecting multiple clusters where they do not exist (or inflating the number of detected clusters), and \emph{type II} error (false-negative results) as failing to detect multiple clusters where they truly exist.
+
+Concerning \emph{type II} error, lack of statistical power is a well-known problem in psychology (Szucs \& Ioannidis, 2017). In cluster analysis, power may be mostly limited by effect sizes and availability of enough informative indicators. For example, Dalmaijer (2023) suggests that adequate power could be reached even with small samples, but this requires measures on over 30 independent dimensions, all informative about cluster membership (i.e., all differing between-cluster), with a mean separation of 0.68 Standard Deviations (\emph{SD}s). Under more realistic research scenarios (i.e., sample sizes in the order of hundreds of cases, and availability of at most 6-12 independent indicators), Tein, Coxe, and Cham (2013) and Toffalini, Girardi, Giofrè, and Altoè (2022) found that minimum effect sizes (between-cluster separation) should be of at least 0.80 \emph{SD}s, but preferably above 1.00 \emph{SD}, which are considered large effects in psychology.
+
+\emph{Type I} error has been widely investigated in relation to the replicability crisis (Lakens, 2023). Illicit research practices such as \emph{p}-hacking and uncorrected multiple testing in the context of confirmatory research are well-known. Inflation of \emph{type I} error due to violations of assumptions in statistical methods is relatively less famous, but potentially more dangerous because it may lead to consistently replicable and yet false results. Minor violation of assumptions (and sometimes even major ones) do not necessarily impact \emph{type I} error to a relevant extent, but this must be assessed case by case. A powerful tool to assess inferential risks is data simulation. Unlike real data, whose data-generating process is most frequently unknown in psychology, ground truth is always known when simulating data. This allows to establish with certainty whether and how much a model misspecification or the violation of some assumptions leads to incorrect inference.
+
+In this paper we present, via examples, a simple use of data simulation to perform sanity checks and establish \emph{a priori} inferential risks when doing cluster analysis. We focused on two clustering methods: Gaussian mixture models (GMM) and \emph{k}-means. We chose these two methods for their popularity and because they reflect different approaches and underlying assumptions. GMM is a model-based approach that fits data as mixtures of normal probability distributions. Among other advantages, it offers parameter estimates, models covariances within clusters, and clusters can present different sizes and densities. It works, however, under the assumption of normally-distributed residuals. On the contrary, \emph{k}-means is a non-model-based, non-parametric approach that does not require distributional assumptions. Like other non-model-based methods that group objects based on distances (but also like latent profile and latent class analysis, which are model-based), however, it requires local (or conditional) independence, meaning that no correlation across variables/indicators can be assumed within clusters. Also, valid use of \emph{k}-means requires clusters of similar size and density.
+
+In the examples below we will focus on local independence and distributional assumption violations. A deep discussion of these issues is beyond the scope of this paper, but we briefly note that these two assumptions are especially problematic in psychological research. Consider research involving cognitive variables. A well-known phenomenon named positive manifold implies that any pair of variables involving any type of cognitive performance should always be expected to correlate positively (Spearman, 1904; Van Der Maas et al., 2006). But positive manifold has also been reported in very different fields of investigation, such as psychopathology (Caspi et al., 2014). In brief, assuming true orthogonality may be challenging. Dimensionality reduction via principal components to ensure orthogonality may be a good alternative to using observed variables when performing clustering (Dalmaijer, 2023), although this might limit interpretability of results. Concerning distributions, hardly any variable in psychology actually presents a Normal distribution (Micceri, 1989). Sum scores of binomial (e.g., true/false, correct/incorrect) or ordinal (e.g., Likert scales) responses in tests or questionnaires are more the rule than the exception. Some degree of non-normality should always be expected in these cases. For example, \emph{Mean} and \emph{SD} are non-independent in a binomial distribution (e.g., sum score of binomial responses), leading to some heteroschedasticity. In many applications of linear models, skewness below 1.00 is generally tolerated. Here, we emphasize that the violation of distributional assumptions may not always be a problem, but it must be assessed \emph{a priori}.
+
+\hypertarget{simulation}{%
+\section{Simulation}\label{simulation}}
+
+\hypertarget{data-analysis-methods}{%
+\subsection{Data analysis methods}\label{data-analysis-methods}}
+
+All data analysis was performed with R (R Core Team, 2023) (we used version 4.3.2). We assume the reader being already familiar with base R. As explained in the Introduction, in our examples we employed model-based GMM and non-model-based \emph{k}-means. GMM was fitted using the (Scrucca, Fop, Murphy, \& Raftery, 2016) package, while \emph{k}-means was performed using base functions. Plots were made using the ``ggplot2'' (Wickham, 2016) and ``corrplot'' (Wei \& Simko, 2021) packages. Multivariate normally-distributed correlated data with skewness and kurtosis were simulated using the ``semTools'' (Jorgensen, Pornprasertmanit, Schoemann, \& Rosseel, 2022) package (this is suboptimal for large skewness, but it works well for coefficients below 1.00, which was more than enough for our purposes). We chose to focus on the following parameters of the data-generating process: sample size (\emph{N}/number of observations), number of clustering indicators (\emph{p}), correlations across indicators (Pearson's \emph{r}), skewness, kurtosis, and standardized effect size (\emph{d}, between-cluster separation in SDs). The latter is meaningful only when assessing power, as it implies the existence of true clusters with non-zero separation.
+
+\hypertarget{what-do-we-mean-by-statistical-inference-here}{%
+\subsubsection{\texorpdfstring{\emph{What do we mean by statistical inference here?}}{What do we mean by statistical inference here?}}\label{what-do-we-mean-by-statistical-inference-here}}
+
+GMM and \emph{k}-means are clustering methods, but they do not perform statistical inference \emph{per se}. The ``true'' number of clusters must be inferred via the identification of the optimal solution among alternatives. For GMM, we used the popular ``\emph{BIC}'' index. That is, GMM fits alternative models with varying number of clusters, and the one with the best \emph{BIC} is retained as optimal (note that, unlike the typical use of \emph{BIC}, the \texttt{mclust} package of R multiplies the \emph{BIC} by -1, so higher \emph{BIC} is better). For \emph{k}-means, we adopted a two-step procedure: first we tested the 1-cluster solution with the Duda-Hart test (Duda, Hart, et al., 1973), using a significance level of \emph{\(\alpha\)} = 0.05. Then, only if the 1-cluster solution was rejected, the optimal solution was selected using the average silhouette method (maximum value is optimal). In all examples below, we tested solutions in the range of 1-5 clusters. Using other thresholds or indices (e.g., \emph{AIC} or entropy instead of \emph{BIC}) may lead to different results, but the conditions under which inferential errors are inflated are generally the same.
+
+\hypertarget{basic-tutorial-on-data-simulation-for-clustering}{%
+\subsection{Basic tutorial on data simulation for clustering}\label{basic-tutorial-on-data-simulation-for-clustering}}
+
+Before starting, let us load some R packages that will be needed. Make sure that you have already installed them, or in case use the ``\texttt{install.packages("package-name")}'' command.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(mclust)}
+\FunctionTok{library}\NormalTok{(cluster)}
+\FunctionTok{library}\NormalTok{(semTools)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(fpc)}
+\end{Highlighting}
+\end{Shaded}
+
+Clustering algorithms may be pretty complex. Luckily, just generating multivariate distributions with desired characteristics is pretty easy. In this tutorial, whenever random number generation occurs we ensure computational reproducibility by setting the \texttt{seed} using the \texttt{set.seed()} function.
+
+In the following chunk of R code we create a custom data-simulating function named \texttt{generate\_obs}. Inside it, we use the function \texttt{mvrnonnorm} from the \texttt{semTools} package to generate \emph{N} observations on \emph{p} variables/indicators, with a between-variable correlation equal \emph{corr}, with mean values \emph{mu}, and desired SD (\emph{sd}), skewness (\emph{skew}) and kurtosis (\emph{kurt}).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{generate\_obs }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(}\AttributeTok{N=}\ConstantTok{NA}\NormalTok{, }\AttributeTok{p=}\ConstantTok{NA}\NormalTok{, }\AttributeTok{corr=}\ConstantTok{NA}\NormalTok{, }\AttributeTok{mu=}\ConstantTok{NA}\NormalTok{, }\AttributeTok{sd=}\ConstantTok{NA}\NormalTok{, }\AttributeTok{skew=}\ConstantTok{NA}\NormalTok{, }\AttributeTok{kurt=}\ConstantTok{NA}\NormalTok{)\{}
+    \CommentTok{\# define variance{-}covariance matrix}
+\NormalTok{    Sigma }\OtherTok{=} \FunctionTok{matrix}\NormalTok{(corr}\SpecialCharTok{*}\NormalTok{sd}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{, p, p) }\SpecialCharTok{+} \FunctionTok{diag}\NormalTok{(sd}\SpecialCharTok{\^{}}\DecValTok{2}\SpecialCharTok{{-}}\NormalTok{corr}\SpecialCharTok{*}\NormalTok{sd}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{, p)}
+    \CommentTok{\# generate and return random sample of data}
+\NormalTok{    df }\OtherTok{=} \FunctionTok{mvrnonnorm}\NormalTok{(}\AttributeTok{n=}\NormalTok{N, }\AttributeTok{mu=}\FunctionTok{rep}\NormalTok{(mu,p), }\AttributeTok{Sigma=}\NormalTok{Sigma, }\AttributeTok{skewness=}\NormalTok{skew, }\AttributeTok{kurtosis=}\NormalTok{kurt)}
+    \FunctionTok{return}\NormalTok{(}\FunctionTok{data.frame}\NormalTok{(df))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Now that this convenient function is created, we use it to generate 300 observations on 4 non-correlated variables/indicators distributed as standard Gaussians. The code ends showing the first few rows of the simulated sample.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{0}\NormalTok{)}
+\CommentTok{\# simulate sample and see first few rows}
+\NormalTok{df }\OtherTok{=} \FunctionTok{generate\_obs}\NormalTok{(}\AttributeTok{N=}\DecValTok{300}\NormalTok{, }\AttributeTok{p=}\DecValTok{4}\NormalTok{, }\AttributeTok{corr=}\DecValTok{0}\NormalTok{, }\AttributeTok{mu=}\DecValTok{0}\NormalTok{, }\AttributeTok{sd=}\DecValTok{1}\NormalTok{, }\AttributeTok{skew=}\DecValTok{0}\NormalTok{, }\AttributeTok{kurt=}\DecValTok{0}\NormalTok{)}
+\FunctionTok{head}\NormalTok{( }\FunctionTok{round}\NormalTok{(df,}\DecValTok{3}\NormalTok{) )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+#>       X1     X2     X3     X4
+#> 1 -0.592 -1.688 -0.124  1.263
+#> 2 -0.371  0.648  1.467 -0.326
+#> 3  0.088  0.449  0.674  1.330
+#> 4 -0.035  1.026  1.956  1.272
+#> 5  1.806  1.075 -0.269  0.415
+#> 6 -0.340  0.458 -1.245 -1.540
+\end{verbatim}
+
+Now, we perform GMM on this simulated sample using the \texttt{mclust::Mclust} function. We test 1- to 5-cluster solutions. From the resulting object, we only extract ``\emph{G}'', the number of clusters corresponding to the optimal solution. As expected, favored \emph{G} = 1, suggesting that GMM has correctly identified the 1-cluster solution as optimal (i.e., the mixture model with the optimal \emph{BIC} features only 1 cluster).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# fit Gaussian mixture model (GMM) on data}
+\NormalTok{fitGMM }\OtherTok{=} \FunctionTok{Mclust}\NormalTok{(df, }\AttributeTok{G=}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Now that GMM is fitted, the optimal number of detected clusters can be accessed typing ``\texttt{fitGMM\$G}'' in the R console, resulting in 1 cluster.
+
+Second, we perform \emph{k}-means and identify the best solution using the Duda-Hart test and the maximum average silhouette value. This is slightly more complex, as it is not wrapped in an existing function, so we have to define a custom one. Luckily, also \emph{k}-means identifies the 1-cluster solution as optimal.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# define function for detecting optimal solution using k{-}means among 1{-}5 clusters}
+\NormalTok{kmeans\_opt }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(}\AttributeTok{data=}\ConstantTok{NA}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.05}\NormalTok{)\{}
+    \CommentTok{\# require(cluster)}
+    \CommentTok{\# require(fpc)}
+    \CommentTok{\# first perform duda{-}hart test on 2{-}cluster solution}
+\NormalTok{    k2 }\OtherTok{=} \FunctionTok{kmeans}\NormalTok{(data, }\AttributeTok{centers=}\DecValTok{2}\NormalTok{)}
+\NormalTok{    dh }\OtherTok{=} \FunctionTok{dudahart2}\NormalTok{(data, }\AttributeTok{clustering=}\NormalTok{k2}\SpecialCharTok{$}\NormalTok{cluster, }\AttributeTok{alpha=}\NormalTok{alpha)}
+    \ControlFlowTok{if}\NormalTok{(dh}\SpecialCharTok{$}\NormalTok{cluster1 }\SpecialCharTok{==} \ConstantTok{TRUE}\NormalTok{)\{}
+        \FunctionTok{return}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\NormalTok{    \}}\ControlFlowTok{else}\NormalTok{\{ }\CommentTok{\# test more clusters only if duda{-}hart test is significant}
+\NormalTok{    sil }\OtherTok{=} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{5}\NormalTok{)}
+    \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{2}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(sil))\{}
+\NormalTok{        k }\OtherTok{=} \FunctionTok{kmeans}\NormalTok{(data, }\AttributeTok{centers=}\NormalTok{i)}
+        \CommentTok{\# compute silhouette value for i{-}cluster solution}
+\NormalTok{        silvalue }\OtherTok{=} \FunctionTok{silhouette}\NormalTok{(k}\SpecialCharTok{$}\NormalTok{cluster, }
+                              \AttributeTok{dist=}\FunctionTok{dist}\NormalTok{(data, }
+                                        \AttributeTok{method=}\StringTok{"euclidean"}\NormalTok{))[,}\StringTok{"sil\_width"}\NormalTok{]}
+\NormalTok{        sil[i] }\OtherTok{=} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(silvalue), }\DecValTok{8}\NormalTok{)}
+\NormalTok{    \}}
+    \CommentTok{\# best solution has maximum silhouette value}
+    \FunctionTok{return}\NormalTok{(}\FunctionTok{which}\NormalTok{(sil}\SpecialCharTok{==}\FunctionTok{max}\NormalTok{(sil)))}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Now that the function is written, the optimal number of detected clusters can be accessed typing ``\texttt{kmeans\_opt(data=df)}'', resulting in 1 cluster.
+
+Lastly, if one seeks a faster solution using a partitioning, distance-based algorithm like \emph{k}-means, but with the selection of the optimal solution wrapped in a single existing function, the ``Partitioning Around Medoids'' (PAM) clustering method may be a preferred alternative. The \texttt{pamk} function is implemented in the \texttt{fpc} package.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fitPamk }\OtherTok{=} \FunctionTok{pamk}\NormalTok{(}\AttributeTok{data=}\NormalTok{df, }\AttributeTok{krange=}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The number of detected clusters (optimal solution) can be simply accessed by typing ``\texttt{fitPamk\$nc}'', resulting in 1 cluster.
+
+To test whether the above methods adequately detect multiple clusters when they exist, we simulate a 3-cluster sample. Pairs of clusters are separated by \emph{d} = 5.00 on each variable, except the first and third cluster, that are separated by \emph{d} = 10.00. This is a simplified example made only for illustrative purposes. Also, such effect sizes should not be routinely expected in psychological research.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{0}\NormalTok{)}
+\CommentTok{\# simulate 3{-}cluster sample}
+\NormalTok{d }\OtherTok{=} \FloatTok{5.00} \CommentTok{\# set effect size (cluster separation)}
+\NormalTok{clust1 }\OtherTok{=} \FunctionTok{generate\_obs}\NormalTok{(}\AttributeTok{N=}\DecValTok{100}\NormalTok{, }\AttributeTok{p=}\DecValTok{4}\NormalTok{, }\AttributeTok{corr=}\DecValTok{0}\NormalTok{, }\AttributeTok{mu=}\DecValTok{0}\NormalTok{,   }\AttributeTok{sd=}\DecValTok{1}\NormalTok{, }\AttributeTok{skew=}\DecValTok{0}\NormalTok{, }\AttributeTok{kurt=}\DecValTok{0}\NormalTok{)}
+\NormalTok{clust2 }\OtherTok{=} \FunctionTok{generate\_obs}\NormalTok{(}\AttributeTok{N=}\DecValTok{100}\NormalTok{, }\AttributeTok{p=}\DecValTok{4}\NormalTok{, }\AttributeTok{corr=}\DecValTok{0}\NormalTok{, }\AttributeTok{mu=}\NormalTok{d,   }\AttributeTok{sd=}\DecValTok{1}\NormalTok{, }\AttributeTok{skew=}\DecValTok{0}\NormalTok{, }\AttributeTok{kurt=}\DecValTok{0}\NormalTok{)}
+\NormalTok{clust3 }\OtherTok{=} \FunctionTok{generate\_obs}\NormalTok{(}\AttributeTok{N=}\DecValTok{100}\NormalTok{, }\AttributeTok{p=}\DecValTok{4}\NormalTok{, }\AttributeTok{corr=}\DecValTok{0}\NormalTok{, }\AttributeTok{mu=}\NormalTok{d}\SpecialCharTok{+}\NormalTok{d, }\AttributeTok{sd=}\DecValTok{1}\NormalTok{, }\AttributeTok{skew=}\DecValTok{0}\NormalTok{, }\AttributeTok{kurt=}\DecValTok{0}\NormalTok{)}
+\NormalTok{df }\OtherTok{=} \FunctionTok{rbind}\NormalTok{(clust1, clust2, clust3) }\CommentTok{\# combine data of the 3 clusters}
+\end{Highlighting}
+\end{Shaded}
+
+Now that the data for the three clusters are generated, let us visualize the bivariate scatter plot on the first two indicators (``X1'' and ``X2'') using the ``\texttt{plot(df{[},c("X1","X2"){]})}'' command. Figure \ref{fig:figure-three-cluster-example} below displays the result, clearly showing three distinct clusters.
+
+(Figure \ref{fig:figure-three-cluster-example} here)
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{paper_files/figure-latex/figure-three-cluster-example-1} 
+
+}
+
+\caption{Example of scatter plot showing three clusters with very large separations.}\label{fig:figure-three-cluster-example}
+\end{figure}
+
+Unsurprisingly, in this case both GMM and \emph{k}-means lead to identifying the 3-cluster solution as optimal. Typing ``\texttt{Mclust(data=df,\ G=1:5)\$G}'' for GMM yields 3 as output, and so does typing \texttt{kmeans\_opt(data=df)} for \emph{k}-means: 3.
+
+\hypertarget{analysis-of-type-i-error-and-power}{%
+\subsection{\texorpdfstring{Analysis of \emph{type I} error and Power}{Analysis of type I error and Power}}\label{analysis-of-type-i-error-and-power}}
+
+So far so good, but with somehow implausible parameters. In the rest of the paper, we will focus mostly on inferential issues, and especially \emph{type I} error. Special attention will be given to conditions that are typical in psychological research.
+
+In the following example we assess how even modest skewness may inflate the number of detected clusters when using GMM or \emph{k}-means. We simulate a 1-cluster population with sample \emph{N} = 700, measured with 4 indicators that are uncorrelated but present some skewness (\emph{skew} = 0.50). To systematically assess inferential risks, many iterations must be run: here we run 100 (``\texttt{niter}'' variable in R code below; generally, many more iterations should be run to get stable results). If a clustering method is robust to skewness, it should consistently select the 1-cluster solution as optimal, leading to a \emph{type I} error rate close to zero.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{0}\NormalTok{)}
+\NormalTok{niter }\OtherTok{=} \DecValTok{100}
+\CommentTok{\# pre{-}allocate vectors of results for efficiency}
+\NormalTok{detectedClusters\_GMM }\OtherTok{=} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, niter)}
+\NormalTok{detectedClusters\_kmeans }\OtherTok{=} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, niter)}
+\CommentTok{\# run type I error simulation: perform GMM and k{-}means on 100 simulated datasets}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{niter)\{}
+    \CommentTok{\# generate data with skewness}
+\NormalTok{    df }\OtherTok{=} \FunctionTok{generate\_obs}\NormalTok{(}\AttributeTok{N=}\DecValTok{700}\NormalTok{, }\AttributeTok{p=}\DecValTok{4}\NormalTok{, }\AttributeTok{corr=}\DecValTok{0}\NormalTok{, }\AttributeTok{mu=}\DecValTok{0}\NormalTok{, }\AttributeTok{sd=}\DecValTok{1}\NormalTok{, }\AttributeTok{skew=}\FloatTok{0.50}\NormalTok{, }\AttributeTok{kurt=}\DecValTok{0}\NormalTok{)}
+    \CommentTok{\# store results}
+\NormalTok{    detectedClusters\_GMM[i] }\OtherTok{=} \FunctionTok{Mclust}\NormalTok{(df, }\AttributeTok{G=}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{)}\SpecialCharTok{$}\NormalTok{G}
+\NormalTok{    detectedClusters\_kmeans[i] }\OtherTok{=} \FunctionTok{kmeans\_opt}\NormalTok{(df, }\AttributeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Once the above chunk is run, we estimate the type I error risk --- that is, percentage of times GMM and \emph{k}-means did NOT favor the correct 1-cluster solution --- by typing the following commands. For GMM: ``\texttt{100*mean(detectedClusters\_GMM!=1,\ na.rm=T)}'', which results in 48\% \emph{type I} error rate. For \emph{k}-means: ``\texttt{100*mean(detectedClusters\_kmeans!=1,\ na.rm=T)}'', which results in 1\% \emph{type I} error rate. Therefore, results show that using GMM on moderately skewed data grossly inflates the number of clusters detected as optimal solution (48\% of iterations end up in detection of multiple clusters that do not exist in the data-generating process), while virtually no risk emerges when using \emph{k}-means (in all but one iteration the 1-cluster solution is correctly detected as optimal).
+
+In the following example we do the same as above, but now instead of manipulating skewness, which we bring back to zero, we set moderate correlations across indicators (\emph{r} = 0.35). The rest is the same.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{0}\NormalTok{)}
+\NormalTok{niter }\OtherTok{=} \DecValTok{100}
+\CommentTok{\# initialize vectors of results}
+\NormalTok{detectedClusters\_GMM }\OtherTok{=} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, niter)}
+\NormalTok{detectedClusters\_kmeans }\OtherTok{=} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, niter)}
+\CommentTok{\# run type I error simulation: perform GMM and k{-}means on 100 simulated datasets}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{niter)\{}
+    \CommentTok{\# generate correlated data}
+\NormalTok{    df }\OtherTok{=} \FunctionTok{generate\_obs}\NormalTok{(}\AttributeTok{N=}\DecValTok{700}\NormalTok{, }\AttributeTok{p=}\DecValTok{4}\NormalTok{, }\AttributeTok{corr=}\FloatTok{0.35}\NormalTok{, }\AttributeTok{mu=}\DecValTok{0}\NormalTok{, }\AttributeTok{sd=}\DecValTok{1}\NormalTok{, }\AttributeTok{skew=}\DecValTok{0}\NormalTok{, }\AttributeTok{kurt=}\DecValTok{0}\NormalTok{)}
+    \CommentTok{\# store results}
+\NormalTok{    detectedClusters\_GMM[i] }\OtherTok{=} \FunctionTok{Mclust}\NormalTok{(df, }\AttributeTok{G=}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{)}\SpecialCharTok{$}\NormalTok{G}
+\NormalTok{    detectedClusters\_kmeans[i] }\OtherTok{=} \FunctionTok{kmeans\_opt}\NormalTok{(df, }\AttributeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Once again, we get the estimated type I error rates as follows: for GMM we type ``\texttt{100*mean(detectedClusters\_GMM!=1,\ na.rm=T)}'', which results in 5\%. For \emph{k}-means we type ``\texttt{100*mean(detectedClusters\_kmeans!=1,\ na.rm=T)}'', which results in 100\%. Therefore, now GMM leads to a very small risk of false-positive results, whereas the risk is extremely high when using \emph{k}-means (in all 100 iterations, the 2-cluster solution is incorrectly favored), and this is due to violating the local independence assumption.
+
+Finally, we show an example of power analysis. We simulate a sample of \emph{N} = 700 presenting two real clusters (of \emph{n} = 250 and \emph{n} = 450) with a separation (effect size) of \emph{d} = 0.50 in all 4 orthogonal and normally-distributed indicators. In this case there are no violations of assumptions. The effect size is perfectly plausible in psychology, although expecting to find it simultaneously in all 4 non-correlated variables of interest may look bordering on credibility in psychological research, especially in the context of exploratory data analysis.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{0}\NormalTok{)}
+\NormalTok{niter }\OtherTok{=} \DecValTok{100}
+\NormalTok{d }\OtherTok{=} \FloatTok{0.50} \CommentTok{\# set effect size}
+\NormalTok{detectedClusters\_GMM }\OtherTok{=} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, niter)}
+\NormalTok{detectedClusters\_kmeans }\OtherTok{=} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, niter)}
+\CommentTok{\# run power simulation: perform GMM and k{-}means on 100 simulated datasets}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{niter)\{}
+    \CommentTok{\# generate data in 2 clusters}
+\NormalTok{    clust1 }\OtherTok{=} \FunctionTok{generate\_obs}\NormalTok{(}\AttributeTok{N=}\DecValTok{250}\NormalTok{, }\AttributeTok{p=}\DecValTok{4}\NormalTok{, }\AttributeTok{corr=}\DecValTok{0}\NormalTok{, }\AttributeTok{mu=}\DecValTok{0}\NormalTok{, }\AttributeTok{sd=}\DecValTok{1}\NormalTok{, }\AttributeTok{skew=}\DecValTok{0}\NormalTok{, }\AttributeTok{kurt=}\DecValTok{0}\NormalTok{)}
+\NormalTok{    clust2 }\OtherTok{=} \FunctionTok{generate\_obs}\NormalTok{(}\AttributeTok{N=}\DecValTok{450}\NormalTok{, }\AttributeTok{p=}\DecValTok{4}\NormalTok{, }\AttributeTok{corr=}\DecValTok{0}\NormalTok{, }\AttributeTok{mu=}\NormalTok{d, }\AttributeTok{sd=}\DecValTok{1}\NormalTok{, }\AttributeTok{skew=}\DecValTok{0}\NormalTok{, }\AttributeTok{kurt=}\DecValTok{0}\NormalTok{)}
+\NormalTok{    df }\OtherTok{=} \FunctionTok{rbind}\NormalTok{(clust1, clust2)}
+    \CommentTok{\# store results}
+\NormalTok{    detectedClusters\_GMM[i] }\OtherTok{=} \FunctionTok{Mclust}\NormalTok{(df, }\AttributeTok{G=}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{)}\SpecialCharTok{$}\NormalTok{G}
+\NormalTok{    detectedClusters\_kmeans[i] }\OtherTok{=} \FunctionTok{kmeans\_opt}\NormalTok{(df, }\AttributeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+To get the Power estimate (1 - \emph{type II} error rate), we calculate the percentage of times the 2-cluster solution was correctly favored. For GMM, we type ``\texttt{100*mean(detectedClusters\_GMM==2,\ na.rm=T)}'', which results in an estimated 1\% power. For \emph{k}-means, we type ``\texttt{100*mean(detectedClusters\_kmeans==2,\ na.rm=T)}'', which results in an estimated 16\% power. Therefore, under the above somehow ideal conditions, statistical power is absolutely insufficient using either clustering method, with \emph{N} = 700.
+
+When running power, a useful complementary piece of information is the correct classification performance. The Rand Index (Rand, 1971) can be used for this purpose. This is important because under some scenarios the clustering method might apparently identify the number of clusters correctly, but this is accidental or due to violation of assumptions, which leads to incorrect classification. Below we show an example: \emph{k}-means is used, two real clusters exist with the same separation as above (\emph{d} = 0.50), but locality assumption is violated (data are correlated, \emph{r} = 0.35). We used an adjusted version of the Rand Index as implemented in the ``mclust'' package of R (unlike Toffalini et al., 2022, who used the unadjusted index): its interpretive advantage is that it goes around 0 when classification is at chance level.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{0}\NormalTok{)}
+\NormalTok{niter }\OtherTok{=} \DecValTok{100}
+\NormalTok{d }\OtherTok{=} \FloatTok{0.50} \CommentTok{\# set effect size}
+\CommentTok{\# initialize vectors of results}
+\NormalTok{detectedClusters\_kmeans }\OtherTok{=} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, niter)}
+\NormalTok{randIndex\_kmeans }\OtherTok{=} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, niter)}
+\CommentTok{\# power analysis: perform k{-}means, run 100 times}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{niter)\{}
+    \CommentTok{\# generate real clusters but with correlated data}
+\NormalTok{    clust1 }\OtherTok{=} \FunctionTok{generate\_obs}\NormalTok{(}\AttributeTok{N=}\DecValTok{250}\NormalTok{, }\AttributeTok{p=}\DecValTok{4}\NormalTok{, }\AttributeTok{corr=}\FloatTok{0.35}\NormalTok{, }\AttributeTok{mu=}\DecValTok{0}\NormalTok{, }\AttributeTok{sd=}\DecValTok{1}\NormalTok{, }\AttributeTok{skew=}\DecValTok{0}\NormalTok{, }\AttributeTok{kurt=}\DecValTok{0}\NormalTok{)}
+\NormalTok{    clust2 }\OtherTok{=} \FunctionTok{generate\_obs}\NormalTok{(}\AttributeTok{N=}\DecValTok{450}\NormalTok{, }\AttributeTok{p=}\DecValTok{4}\NormalTok{, }\AttributeTok{corr=}\FloatTok{0.35}\NormalTok{, }\AttributeTok{mu=}\NormalTok{d, }\AttributeTok{sd=}\DecValTok{1}\NormalTok{, }\AttributeTok{skew=}\DecValTok{0}\NormalTok{, }\AttributeTok{kurt=}\DecValTok{0}\NormalTok{)}
+\NormalTok{    df }\OtherTok{=} \FunctionTok{rbind}\NormalTok{(clust1, clust2)}
+    \CommentTok{\# "real" classification vector}
+\NormalTok{    realCluster }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\StringTok{"clust1"}\NormalTok{,}\FunctionTok{nrow}\NormalTok{(clust1)),}\FunctionTok{rep}\NormalTok{(}\StringTok{"clust2"}\NormalTok{,}\FunctionTok{nrow}\NormalTok{(clust2)))}
+    \CommentTok{\# store results}
+\NormalTok{    kopt }\OtherTok{=} \FunctionTok{kmeans\_opt}\NormalTok{(df, }\AttributeTok{alpha=}\FloatTok{0.05}\NormalTok{)}
+\NormalTok{    detectedClusters\_kmeans[i] }\OtherTok{=}\NormalTok{ kopt}
+    \CommentTok{\# k{-}means{-}predicted classification vector}
+\NormalTok{    predictedCluster }\OtherTok{=} \FunctionTok{kmeans}\NormalTok{(df, }\AttributeTok{centers=}\NormalTok{kopt)}\SpecialCharTok{$}\NormalTok{cluster}
+    \CommentTok{\# rand index compares real vs predicted classification vectors}
+\NormalTok{    randIndex\_kmeans[i] }\OtherTok{=} \FunctionTok{adjustedRandIndex}\NormalTok{(realCluster, predictedCluster)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Now we type ``\texttt{round(\ mean(randIndex\_kmeans,\ na.rm=T),\ 2)}'' to get the \emph{mean adjusted Rand Index} (rounded to the 2\textsuperscript{nd} decimal value), which yields 0.06. Such an extremely poor classification accuracy seems at odds with the high power achieved, which we estimate typing ``\texttt{100*mean(detectedClusters\_kmeans==2,\ na.rm=TRUE)}'' and yields 100\% power. Therefore, the above simulating conditions present a very high chance of detecting two clusters, but not of correctly classifying them. Indeed, as shown above, the algorithm would detect two clusters even if they were not there (high \emph{type I} error rate) due to the violation of the local independence assumption (\emph{r} = 0.35). Thus, just estimating power without simultaneously considering \emph{type I} error rate and classification accuracy is risky and inappropriate. In the above case, better classification accuracy is achieved with larger effect sizes: with \emph{d} = 2.00 (which is implausible in most psychological research, however) we get \emph{mean adjusted Rand Index} = 0.68.
+
+\hypertarget{examples-on-more-complex-scenarios}{%
+\section{Examples on more complex scenarios}\label{examples-on-more-complex-scenarios}}
+
+In this section we present a few additional examples on more complex scenarios. They represent extensions of the procedures explained above, although they are not accompanied by detailed in-text R code. Full R code can be found on GitHub: xxxxxxxxxxxxxxxx.
+
+\hypertarget{specific-patterns-of-correlations-lead-to-specific-cluster-solutions-being-favored-when-using-k-means}{%
+\subsection{\texorpdfstring{Specific patterns of correlations lead to specific cluster solutions being favored when using \emph{k}-means}{Specific patterns of correlations lead to specific cluster solutions being favored when using k-means}}\label{specific-patterns-of-correlations-lead-to-specific-cluster-solutions-being-favored-when-using-k-means}}
+
+As shown above, if local independence is violated optimal solutions may present an inflated number of clusters when using \emph{k}-means. If the index used for decision is the Silhouette value, the 2-cluster solution will most frequently be preferred. This means that the Duda-Hart test incurs \emph{type I} error due to the violation of local independence, but luckily the Silhouette value is parsimonious enough to limit further inflation.
+
+Nevertheless, specific patterns of correlations may lead to particular cluster solutions being detected as optimal. Figure \ref{fig:figure-matrix-correlation} shows two examples: in panel A) correlations are distributed homogeneously across all pairs of variables (a typical positive manifold with modest correlations), and the 2-cluster solution is predominantly favored; contrarily, in panel B) there are three strong pairs of correlation, possibly indicative of three factors each affecting a couple of variables: in this latter case, 3-, 4-, and even 5-cluster solutions are more frequently favored, with the 4-cluster solution becoming predominant as sample size (\emph{N}) increases.
+
+(Figure \ref{fig:figure-matrix-correlation} here)
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figures_external/Figure_matrix_correlation_REDUCED2} 
+
+}
+
+\caption{Example of patterns of correlations leading to multiple clusters being detected using k-means (no real clusters are there).}\label{fig:figure-matrix-correlation}
+\end{figure}
+
+\hypertarget{modest-skewness-may-become-critical-with-large-samples-when-using-gaussian-mixture-models}{%
+\subsection{Modest skewness may become critical with large samples when using Gaussian mixture models}\label{modest-skewness-may-become-critical-with-large-samples-when-using-gaussian-mixture-models}}
+
+Researchers are aware that normal distributions are unlikely to occur in psychology (Micceri, 1989). Nevertheless, violation of distributional assumption is not necessarily a major evil when fitting statistical models. For example, in linear regression violation of the normality assumption has been shown to impact false-positive results to a limited degree, and much less than the violation of other assumptions such as independence of residuals (e.g., Knief \& Forstmeier, 2021). This is not the case, however, for GMM. While in other contexts skewnesses of up to 1.00 are tolerated as a rule of thumb, even much smaller skewnesses become critical when performing GMM (Van Horn et al., 2012). In the Figure \ref{fig:figure-modest-skewness} below, we show how a modest degree of non-normality (skewness = 0.5) consistently leads to multiple-cluster solutions being incorrectly favored when using GMM. As for other violations of assumptions, the problem becomes especially evident with large samples: with \emph{N} around or above 1,000 it is virtually guaranteed that GMM will (largely) inflate the number of detected clusters. The simulation was performed with \emph{p} = 4 variables/indicators.
+
+(Figure \ref{fig:figure-modest-skewness} here)
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figures_external/Figure_modest_skewness} 
+
+}
+
+\caption{Example of modest skewness leading to multiple clusters being detected using Gaussian mixture models when samples are large (with 4 orthogonal variables), no real clusters are there.}\label{fig:figure-modest-skewness}
+\end{figure}
+
+\hypertarget{assumptions-should-really-be-a-priori}{%
+\section{\texorpdfstring{Assumptions should really be \emph{a priori}}{Assumptions should really be a priori}}\label{assumptions-should-really-be-a-priori}}
+
+In this paper we have been focusing on two assumptions: local independence and distributional assumptions. Generally, researchers are aware that assumptions must not be checked directly on observed data (marginal distributions). Consider local independence when performing \emph{k}-means. If this assumption is met but one cluster presents higher mean values than another in two variables simultaneously, these two variables will appear positively correlated. Similarly, consider the normality assumption in GMM. If two clusters have perfectly Gaussian distributions on a variable but they have different mean values, the combined distribution will not be Gaussian (if the separation between mean values is larger than 2 \emph{SDs}, the mixture distribution may even appear bimodal).
+
+A common misunderstanding is that the above assumptions can be checked with ease \emph{after} clustering is done. When doing clustering, however, an exploratory approach is adopted. Generally, this means that several alternative clustering solutions are tested and the best one is retained (cf. Toffalini et al., 2022, for a review of recent papers performing clustering in psychological research). Critically, the best solution will fit the data in the best possible way, and it may tend to minimize violations. Below we offer two examples.
+
+Consider a case in which two variables are measured in a sample of 700 cases. The variables correlate \emph{r} = 0.50 on a continuum, with no clusters at all. As shown above, this violates the local independence assumption and may lead to incorrect conclusions when using \emph{k}-means. Indeed, in the simulated case shown below in Figure \ref{fig:figure-kmeans-assumptions}, a 2-cluster solution is incorrectly identified as the best one. If one looks at the correlation within each cluster, however, that is virtually zero (\emph{r} = 0.00 and \emph{r} = -0.02 respectively), but this is clearly no evidence of local independence.
+
+(Figure \ref{fig:figure-kmeans-assumptions} here)
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{paper_files/figure-latex/figure-kmeans-assumptions-1} 
+
+}
+
+\caption{K-means: example of correlated data (no real clusters are there) that are no longer correlated after centering on detected clusters.}\label{fig:figure-kmeans-assumptions}
+\end{figure}
+
+When using GMM, checking the distributional assumption after clustering is done may be somehow less problematic than the case above. Consider the example shown below in Figure \ref{fig:figure-gmm-assumptions}. Two uncorrelated variables are measured. No real clusters are there. X2 is normally distributed, but X1 presents \emph{skewness} = 1.00 (which is large). Due to skewness, GMM incorrectly favors a 5-cluster solution (in a 1-to-5 range). X1 skewness is very modest in three of the emerging clusters: 0.04, 0.17, and 0.21, but it is still large in other two, \emph{skewness} = 0.76 and 0.81. Running more iterations like this suggests that clusters identified via GMM often present less skewness than the original distribution, but normality of residuals is hardly ever achieved.
+
+(Figure \ref{fig:figure-gmm-assumptions} here)
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{paper_files/figure-latex/figure-gmm-assumptions-1} 
+
+}
+
+\caption{Gaussian mixture model: example of skewed data (no real clusters are there) that are less skewed within detected clusters.}\label{fig:figure-gmm-assumptions}
+\end{figure}
+
+To conclude, assumptions should really be \emph{a priori}. Local independence implies that we must have good reasons to consider the variables as truly orthogonal (\emph{r} = 0) within cluster/in a homogeneous population \emph{before} deciding to perform clustering. Normality assumption implies that we can truly consider distributions as Gaussian for all variables, with possible non-normality entirely assumed to reflect underlying clusters.
+
+\hypertarget{shiny-app}{%
+\section{Shiny app}\label{shiny-app}}
+
+To help readers perform their own computations, we created a graphical interface via the ``shiny'' package of R (Chang et al., 2023). The code is fully available on GitHub, while the web app is deployed at xxxxxxxxxxxxxx (in case of problems with the link, see the ``README'' document on GitHub for alternatives).
+
+The shiny app allows the user to compute \emph{type I} error and power analysis under research scenarios characterized by desired sample size (\emph{N}), number of variables/indicators, their correlations, skewness, and kurtosis, and cluster separations (Cohen's \emph{d} on each variable, only if power is computed). For simplicity, only the ``H1'' hypothesis that there are 2 real clusters is currently implemented for Power analysis in the shiny app.
+
+The app comes with two main possibilities: to specify the data-generating parameters based on your knowledge/expectations (``Data Specification''), or using an already existing dataset that you can upload (``Data Upload''). The only exception is Cohen's \emph{d}, which must always be specified based on prior expectations (like any effect size in a power analysis). When choosing ``Data Specification'' the user is required to specify the number of indicators/variables and their correlations, skewness, and kurtosis. The latter three parameters are randomly sampled from uniform ranges (unless the bounds of the ranges are constrained to equality) based on the user's specifications. Ranges allow user to introduce some variability in the parameters. An example is shown in Figure \ref{fig:figure-data-specification-shiny}. Subsequently, the users can run ``Generate Data'' to sample a particular set of parameters. Alternatively, when choosing ``Data Upload'', the parameters will be directly determined based on an uploaded dataset (only quantitative variables are permitted).
+
+The app is based on a sets of functions that can be used also within R scripts (outside the graphical interface) to implement more complex and extensive simulation.
+
+(Figure \ref{fig:figure-data-specification-shiny} here)
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figures_external/Figure_Data_specification_shiny} 
+
+}
+
+\caption{Example of the 'Data specification' tab with some random parameters in the shiny app (version 1.0).}\label{fig:figure-data-specification-shiny}
+\end{figure}
+
+After the previous phase is completed the user must go to simulation, where they will effectively run a Monte Carlo simulation for computing \emph{Type I} error and/or Power analysis. Consistently with what is shown in the paper, only GMM (Mclust) and \emph{k}-means are now implemented in the shiny app (version 1.0). Two additional parameters that must be set here are: sample size (\emph{N}) and cluster separation/Cohen's \emph{d} (meaningful only when computing Power). Before running ``Start simulation'', maximum computation time must be set (default is 10 seconds). We preferred to set a computation time limit rather than a predetermined number of iterations because time is obviously the main constraint in the user experience of a web app. After simulation is done, a short text summarizing the simulation parameters and the results is offered as output, along with a plot showing the distribution of number of clusters favored as best solutions. An example is shown in Figure \ref{fig:figure-simulation-shiny}.
+
+(Figure \ref{fig:figure-simulation-shiny} here)
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figures_external/Figure_Simulation_shiny} 
+
+}
+
+\caption{Example of the 'Simulation' tab with results in the shiny app (version 1.0).}\label{fig:figure-simulation-shiny}
+\end{figure}
+
+\hypertarget{conclusions}{%
+\section{Conclusions}\label{conclusions}}
+
+Despite clustering involves an exploratory approach to data analysis, we insist that inferential risks must be evaluated \emph{a priori} if the goal is statistical inference. This is frequently the case in basic research, where researchers aim to detect and describe allegedly distinct types of individuals based on psychological dimensions (see the literature review by Toffalini et al., 2022). In the present article, we have offered an R tutorial and a shiny app to help researchers assess \emph{type I} error rates and run power analysis when performing clustering on their quantitative data. The shiny app was created for illustrative purposes to implement a few representative cases, while the R tutorial is aimed to provide the reader with the conceptual and practical tools for building up and explore arbitrarily complex scenarios. Via examples, we showed that violations of assumptions to a degree that is often neglected in psychological research (e.g., correlations of \emph{r} = 0.10 when performing \emph{k}-means in panel A of Figure \ref{fig:figure-matrix-correlation}, or skewness = 0.50 when performing GMM in Figure \ref{fig:figure-modest-skewness}) may powerfully lead to identify clusters that are not there.
+
+We conclude with a few additional considerations. First, it is possible that, under some scenarios, multiple clusters are incorrectly detected even if no assumptions are violated. For example, GMM should ideally model covariances across indicators. However, Toffalini et al. (2022) showed that this method may incorrectly favor multiple-cluster solutions when there is a weak positive manifold across variables and the sample size is not sufficiently large to model it. Second, here we showed the consequence of non-normality of data distribution by manipulating skewness, but large kurtosis is equally problematic for GMM (the reader can try that using the shiny app). Finally, we focused only on local independence and distributional assumptions, but violations of other assumptions might be equally problematic. For example, non-independence of observations due to known groupings that are not the goal of a cluster analysis (e.g., children in schools), or differences in size, density, or sphericity of clusters in \emph{k}-means. Finally, we chose to omit considering other clustering methods such as density-based ones (e.g., DBSCAN). This is because they imply between-cluster separations so large such as they leave near-zero density areas in the middle, which requires separations that are implausible in psychological research. After understanding the logic of the R tutorial, however, the interested reader will be able to conduct their own simulations on any customized scenario.
+
+\hypertarget{code-availability}{%
+\subsection{Code availability}\label{code-availability}}
+
+The markdown of the present paper and all code for reproducibility of results is available on GitHub at: xxxxxxxxx
+
+\newpage
+
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-caspi2014}{}}%
+Caspi, A., Houts, R. M., Belsky, D. W., Goldman-Mellor, S. J., Harrington, H., Israel, S., et al.others. (2014). The p factor: One general psychopathology factor in the structure of psychiatric disorders? \emph{Clinical Psychological Science}, \emph{2}(2), 119--137.
+
+\leavevmode\vadjust pre{\hypertarget{ref-shinypackage}{}}%
+Chang, W., Cheng, J., Allaire, J., Sievert, C., Schloerke, B., Xie, Y., \ldots{} Borges, B. (2023). \emph{Shiny: Web application framework for r}. Retrieved from \url{https://CRAN.R-project.org/package=shiny}
+
+\leavevmode\vadjust pre{\hypertarget{ref-dalmaijer2023}{}}%
+Dalmaijer, E. S. (2023). Tutorial: A priori estimation of sample size, effect size, and statistical power for cluster analysis, latent class analysis, and multivariate mixture models. \emph{arXiv Preprint arXiv:2309.00866}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-duda1973}{}}%
+Duda, R. O., Hart, P. E., et al. (1973). \emph{Pattern classification and scene analysis} (Vol. 3). Wiley New York.
+
+\leavevmode\vadjust pre{\hypertarget{ref-gigerenzer2004}{}}%
+Gigerenzer, G., Krauss, S., \& Vitouch, O. (2004). The null ritual: What you always wanted to know about significance testing but were afraid to ask. \emph{The Sage Handbook of Quantitative Methodology for the Social Sciences}, 391--408.
+
+\leavevmode\vadjust pre{\hypertarget{ref-semToolspackage}{}}%
+Jorgensen, T. D., Pornprasertmanit, S., Schoemann, A. M., \& Rosseel, Y. (2022). \emph{\texttt{semTools}: {U}seful tools for structural equation modeling}. Retrieved from \url{https://CRAN.R-project.org/package=semTools}
+
+\leavevmode\vadjust pre{\hypertarget{ref-kassambara2017}{}}%
+Kassambara, A. (2017). \emph{Practical guide to cluster analysis in r: Unsupervised machine learning} (Vol. 1). Sthda.
+
+\leavevmode\vadjust pre{\hypertarget{ref-knief2021}{}}%
+Knief, U., \& Forstmeier, W. (2021). Violating the normality assumption may be the lesser of two evils. \emph{Behavior Research Methods}, \emph{53}(6), 2576--2590.
+
+\leavevmode\vadjust pre{\hypertarget{ref-lakens2023}{}}%
+Lakens, D. (2023). \emph{Concerns about replicability, theorizing, applicability, generalizability, and methodology across two crises in social psychology}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-micceri1989}{}}%
+Micceri, T. (1989). The unicorn, the normal curve, and other improbable creatures. \emph{Psychological Bulletin}, \emph{105}(1), 156.
+
+\leavevmode\vadjust pre{\hypertarget{ref-R-base}{}}%
+R Core Team. (2023). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
+
+\leavevmode\vadjust pre{\hypertarget{ref-rand1971}{}}%
+Rand, W. M. (1971). Objective criteria for the evaluation of clustering methods. \emph{Journal of the American Statistical Association}, 846--850.
+
+\leavevmode\vadjust pre{\hypertarget{ref-mclust}{}}%
+Scrucca, L., Fop, M., Murphy, T. B., \& Raftery, A. E. (2016). {mclust} 5: Clustering, classification and density estimation using {G}aussian finite mixture models. \emph{The {R} Journal}, \emph{8}(1), 289--317. Retrieved from \url{https://doi.org/10.32614/RJ-2016-021}
+
+\leavevmode\vadjust pre{\hypertarget{ref-spearman1904}{}}%
+Spearman, C. (1904). General intelligence, objectively determined and measured. \emph{American Journal of Psychology}, \emph{15}, 201--293.
+
+\leavevmode\vadjust pre{\hypertarget{ref-szucs2017}{}}%
+Szucs, D., \& Ioannidis, J. P. (2017). Empirical assessment of published effect sizes and power in the recent cognitive neuroscience and psychology literature. \emph{PLoS Biology}, \emph{15}(3), e2000797.
+
+\leavevmode\vadjust pre{\hypertarget{ref-tein2013}{}}%
+Tein, J.-Y., Coxe, S., \& Cham, H. (2013). Statistical power to detect the correct number of classes in latent profile analysis. \emph{Structural Equation Modeling: A Multidisciplinary Journal}, \emph{20}(4), 640--657.
+
+\leavevmode\vadjust pre{\hypertarget{ref-toffalini2022}{}}%
+Toffalini, E., Girardi, P., Giofrè, D., \& Altoè, G. (2022). Entia non sunt multiplicanda??? Shall i look for clusters in my cognitive data? \emph{Plos One}, \emph{17}(6), e0269584.
+
+\leavevmode\vadjust pre{\hypertarget{ref-van2006}{}}%
+Van Der Maas, H. L., Dolan, C. V., Grasman, R. P., Wicherts, J. M., Huizenga, H. M., \& Raijmakers, M. E. (2006). A dynamical model of general intelligence: The positive manifold of intelligence by mutualism. \emph{Psychological Review}, \emph{113}(4), 842.
+
+\leavevmode\vadjust pre{\hypertarget{ref-vanhorn2012}{}}%
+Van Horn, M. L., Smith, J., Fagan, A. A., Jaki, T., Feaster, D. J., Masyn, K., \ldots{} Howe, G. (2012). Not quite normal: Consequences of violating the assumption of normality in regression mixture models. \emph{Structural Equation Modeling: A Multidisciplinary Journal}, \emph{19}(2), 227--249.
+
+\leavevmode\vadjust pre{\hypertarget{ref-corrplotpackage}{}}%
+Wei, T., \& Simko, V. (2021). \emph{R package 'corrplot': Visualization of a correlation matrix}. Retrieved from \url{https://github.com/taiyun/corrplot}
+
+\leavevmode\vadjust pre{\hypertarget{ref-ggplot2package}{}}%
+Wickham, H. (2016). \emph{ggplot2: Elegant graphics for data analysis}. Springer-Verlag New York. Retrieved from \url{https://ggplot2.tidyverse.org}
+
+\end{CSLReferences}
+
+
+\end{document}

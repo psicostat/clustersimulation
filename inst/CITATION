@@ -1,0 +1,19 @@
+citHeader("To cite clustersimulation in publications use:")
+
+bibentry(
+  bibtype = "Misc",
+  title        = "clustersimulation",
+  author       = personList(
+    as.person("Enrico Toffalini"),
+    as.person("Tommaso Feraco"),
+    as.person("Filippo Gambarota"),
+    as.person("Ambra Perugini"),
+    as.person("Enrico Toffalini")),
+  year         = "",
+  publisher    = "",
+  version      = "",
+  doi          = "",
+  url          = "",
+
+textVersion  = paste("Toffalini, E., Gambarota F., Feraco, T., A., & Perugini, A. (2024).", "clustersimulation (Version 1.0.0).")
+)
