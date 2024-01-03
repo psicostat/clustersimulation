@@ -22,11 +22,11 @@ The goal of `clustersimulation` is to provide a set of utilities functions and a
 
 ## Installation
 
-You can install the development version of clustersimulation from [GitHub](https://github.com/) with:
+You can install the development version of clustersimulation from [GitHub](https://github.com/psicostat/clustersimulation) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("filippogambarota/clustersimulation")
+devtools::install_github("psicostat/clustersimulation")
 ```
 
 Once the package is installed the Shiny app (running locally) can be used using:
