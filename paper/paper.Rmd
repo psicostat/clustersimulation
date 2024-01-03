@@ -387,7 +387,7 @@ Now we type "`round( mean(randIndex_kmeans, na.rm=T), 2)`" to get the *mean adju
 
 # Examples on more complex scenarios
 
-In this section we present a few additional examples on more complex scenarios. They represent extensions of the procedures explained above, although they are not accompanied by detailed in-text R code. Full R code can be found on GitHub: xxxxxxxxxxxxxxxx.
+In this section we present a few additional examples on more complex scenarios. They represent extensions of the procedures explained above, although they are not accompanied by detailed in-text R code. Full R code can be found on GitHub: [https://github.com/psicostat/clustersimulation](https://github.com/psicostat/clustersimulation){target="_blank"}
 
 ## Specific patterns of correlations lead to specific cluster solutions being favored when using *k*-means
 
@@ -476,7 +476,7 @@ To conclude, assumptions should really be *a priori*. Local independence implies
 
 # Shiny app
 
-To help readers perform their own computations, we created a graphical interface via the "shiny" package of R [@shinypackage]. The code is fully available on GitHub, while the web app is deployed at xxxxxxxxxxxxxx (in case of problems with the link, see the "README" document on GitHub for alternatives). 
+To help readers perform their own computations, we created a graphical interface via the "shiny" package of R [@shinypackage]. The code is fully available on GitHub ([https://github.com/psicostat/clustersimulation](https://github.com/psicostat/clustersimulation){target="_blank"}), while the web app is deployed at [https://psicostat.shinyapps.io/clustersimulation-demo/](https://psicostat.shinyapps.io/clustersimulation-demo/){target="_blank"} (in case of problems with the link, see the "[README](https://github.com/psicostat/clustersimulation#readme){target="_blank"}" document on GitHub for alternatives). 
 
 The shiny app allows the user to compute *type I* error and power analysis under research scenarios characterized by desired sample size (*N*), number of variables/indicators, their correlations, skewness, and kurtosis, and cluster separations (Cohen's *d* on each variable, only if power is computed). For simplicity, only the "H1" hypothesis that there are 2 real clusters is currently implemented for Power analysis in the shiny app. 
 
@@ -510,7 +510,7 @@ We conclude with a few additional considerations. First, it is possible that, un
 
 ## Code availability
 
-The markdown of the present paper and all code for reproducibility of results is available on GitHub at: xxxxxxxxx 
+The markdown of the present paper and all code for reproducibility of results is available on GitHub at [https://github.com/psicostat/clustersimulation](https://github.com/psicostat/clustersimulation){target="_blank"} 
 
 \newpage
 
