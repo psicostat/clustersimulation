@@ -1,6 +1,8 @@
 library(shiny)
 library(shinyhelper)
 library(ggplot2)
+library(mclust)
+library(clustersimulation)
 
 ui <- navbarPage(
     title = HTML(
@@ -76,7 +78,8 @@ ui <- navbarPage(
                 tags$li("First line variable names"),
                 tags$li("Include only cluster indicators"),
                 tags$li("Include only continuous/numeric variables"),
-                tags$li("Use maximum 20 variables for computation limits")
+                tags$li("Use maximum 20 variables for computation limits"),
+                tags$li("Be careful about missing values. Rows with at least 1 missing value will be excluded!")
             ),
             fileInput("yourfile", "Choose Excel File", accept = c(".xls", ".xlsx")),
             h4("Do you like your data?"),
@@ -374,6 +377,7 @@ server <- function(input, output, session) {
         sumstat <- data.frame(t(udata()$sums))
         tt1 <- cbind(cormat, sumstat)
         rownames(tt1) <- names(udata()$mus)
+        tt1$`missing (%)` <- udata()$sumNA
         clustersimulation:::shiny_table(tt1, c("min", "max", "q25", "q50", "q75"))
     }
     output$yourplot <- renderPlot({
@@ -507,8 +511,6 @@ server <- function(input, output, session) {
             udata(current_udata)
         }
     })
-    #TODO CAPIRE LA PROGRESS BAR
-    #TODO ALLA SECONDA SIMULAZIONE DICE "error" NEL TEXT
     simRes <- eventReactive(input$startPower, {
         # -- INIT THE PROGRESS BAR
         # https://shiny.posit.co/r/articles/build/progress/
