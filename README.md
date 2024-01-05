@@ -15,12 +15,15 @@ setting all required parameters.
 ## Installation
 
 You can install the development version of clustersimulation from
-[GitHub](https://github.com/psicostat/clustersimulation) with:
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("psicostat/clustersimulation")
+devtools::install_github("filippogambarota/clustersimulation")
 ```
+
+Sometimes a restart of R/R Studio could be required to correctly load
+the package after the installation.
 
 Once the package is installed the Shiny app (running locally) can be
 used using:
