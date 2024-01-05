@@ -2,6 +2,7 @@ library(shiny)
 library(shinyhelper)
 library(ggplot2)
 library(mclust)
+library(clustersimulation)
 
 ui <- navbarPage(
     title = HTML(
@@ -77,7 +78,8 @@ ui <- navbarPage(
                 tags$li("First line variable names"),
                 tags$li("Include only cluster indicators"),
                 tags$li("Include only continuous/numeric variables"),
-                tags$li("Use maximum 20 variables for computation limits")
+                tags$li("Use maximum 20 variables for computation limits"),
+                tags$li("Be careful about missing values. Rows with at least 1 missing value will be excluded!")
             ),
             fileInput("yourfile", "Choose Excel File", accept = c(".xls", ".xlsx")),
             h4("Do you like your data?"),
@@ -367,7 +369,7 @@ server <- function(input, output, session) {
     udata <- reactiveVal(NULL)
     observe({
         req(df1())
-        udata(.prep_user_data_shiny(df1(), type = "df1"))
+        udata(clustersimulation:::.prep_user_data_shiny(df1(), type = "df1"))
     })
     output$yourtable <- function() {
         req(udata())
@@ -375,11 +377,12 @@ server <- function(input, output, session) {
         sumstat <- data.frame(t(udata()$sums))
         tt1 <- cbind(cormat, sumstat)
         rownames(tt1) <- names(udata()$mus)
-        shiny_table(tt1, c("min", "max", "q25", "q50", "q75"))
+        tt1$`missing (%)` <- udata()$sumNA
+        clustersimulation:::shiny_table(tt1, c("min", "max", "q25", "q50", "q75"))
     }
     output$yourplot <- renderPlot({
         req(df1())
-        gg <- plot_summary(df1())
+        gg <- clustersimulation:::plot_summary(df1())
         return(gg)
     })
     
@@ -411,7 +414,7 @@ server <- function(input, output, session) {
         kurtosis <-
             runif(input$indicators, input$kurtosis[1], input$kurtosis[2])
         perror <-
-            round(.check_sigma(
+            round(clustersimulation:::.check_sigma(
                 Sigma = S,
                 skew = skewness,
                 kurt = kurtosis
@@ -450,7 +453,7 @@ server <- function(input, output, session) {
     })
     observe({
         req(df2())
-        udata(.prep_user_data_shiny(df2(), type = "df2"))
+        udata(clustersimulation:::.prep_user_data_shiny(df2(), type = "df2"))
     })
     # sim_params <- reactive({
     #     list(rmin = input$correlations[1],
@@ -463,17 +466,17 @@ server <- function(input, output, session) {
     # })
     # simulate and plot data
     output$yourtable2 <- function() {
-        cdata <- .prep_user_data_shiny(df2(), type = "df2")
+        cdata <- clustersimulation:::.prep_user_data_shiny(df2(), type = "df2")
         cormat <- data.frame(cdata$CorT)
         sumstat <-
             data.frame(Skewness = cdata$skews, Kurtosi = cdata$kurts)
         tt2 <- cbind(cormat, sumstat)
         rownames(tt2) <- names(cdata$mus)
-        shiny_table(tt2)
+        clustersimulation:::shiny_table(tt2)
     }
     
     output$yourplot2 <- renderPlot({
-        gg2 <- plot_summary(df2())
+        gg2 <- clustersimulation:::plot_summary(df2())
         # dfx = data.frame(df2())
         # print(head(dfx))
         # gg2 = corrplot(cor(dfx))
@@ -508,8 +511,6 @@ server <- function(input, output, session) {
             udata(current_udata)
         }
     })
-    #TODO CAPIRE LA PROGRESS BAR
-    #TODO ALLA SECONDA SIMULAZIONE DICE "error" NEL TEXT
     simRes <- eventReactive(input$startPower, {
         # -- INIT THE PROGRESS BAR
         # https://shiny.posit.co/r/articles/build/progress/
