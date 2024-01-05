@@ -15,6 +15,20 @@
 #' 
 prep_user_data <- function(data){
     data <- .check_data(data)
+    
+    # percentage of NA
+    n <- nrow(data)
+    nNA <- sapply(data, function(x) sum(is.na(x)))
+    sumNA <- sprintf("%.0f (%.2f %%)", nNA, (nNA/n)*100)
+    
+    
+    # keep only complete cases
+    data <- data[stats::complete.cases(data), ]
+    
+    # calculate summary stats
+    # for mean, sd etc. same as doing na.rm = TRUE
+    # for cor, cov, etc. same as doing cor(data, use = "complete.obs")
+    
     sums <- get_summary_stats(data)
     VCOV <- .get_vcov(data)
     Sigma <- VCOV$vcov
@@ -36,7 +50,8 @@ prep_user_data <- function(data){
         CorT = CorT,
         skews = unlist(skews),
         kurts = unlist(kurts),
-        sums = sums
+        sums = sums,
+        sumNA = sumNA
     )
 }
 
@@ -371,9 +386,8 @@ kmeans_clust <- function(data, cmin = 2, cmax = 5, alpha = 0.05, debug = FALSE){
     all_nums <- all(sapply(data, is.numeric))
     if(!all_nums){
         stop("All columns need to be numeric!")
-    }else{
-        return(data)
     }
+    return(data)
 }
 
 #' get_summary_stats
@@ -389,7 +403,6 @@ kmeans_clust <- function(data, cmin = 2, cmax = 5, alpha = 0.05, debug = FALSE){
 #' X <- sim_clust(2, 100, dmin = 0.5, rmin = 0.3, nind = 10)
 #' get_summary_stats(X)
 get_summary_stats <- function(data){
-    data <- .check_data(data)
     funs <- list(
         mean = mean,
         sd = sd,
