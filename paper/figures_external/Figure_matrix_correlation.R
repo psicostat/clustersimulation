@@ -10,13 +10,13 @@ library(cluster)
 library(corrplot)
 library(ggplot2)
 
-hclust_opt<-function(x,k=5){
+hclust_opt<-function(x, k=5, alpha=0.05){
   k2<-cutree(hclust(dist(x),method = "complete"),2)
-  if (dudahart2(x,k2,alpha=0.05)$cluster1) {
+  if (dudahart2(x,k2,alpha=alpha)$cluster1) {
     if(is.matrix(x)) k=rep(1,dim(x)[1])
     if(!is.matrix(x)) k=rep(1,length(x))
   }
-  if (!dudahart2(x,k2,alpha=0.05)$cluster1) {
+  if (!dudahart2(x,k2,alpha=alpha)$cluster1) {
     sill<-c(NA,rep(NA,k-1))
     for (i in 2:k){
       r<-cutree(hclust(dist(x),method = "complete"),i)
@@ -28,24 +28,25 @@ hclust_opt<-function(x,k=5){
   list(nc=max(k),clust=grouping)
 } 
 
-kmeans_opt = function(data=NA, alpha=0.05){
-  require(cluster)
-  require(fpc)
-  k2 = kmeans(data, centers=2)
-  dh = dudahart2(data, clustering=k2$cluster, alpha=alpha)
-  if(dh$cluster1 == TRUE){
-    return(1)
-  }else{
-    sil = rep(0,5)
-    for(i in 2:length(sil)){
-      k = kmeans(data, centers=i)
-      silvalue = silhouette(k$cluster, 
-                            dist=dist(data, 
-                                      method="euclidean"))[,"sil_width"]
-      sil[i] = round(mean(silvalue), 8)
+kmeans_opt = function(data=NA, krange=1:5, alpha=0.05){
+    # first perform duda-hart test on 2-cluster solution
+    km2 = kmeans(data, centers=2)
+    dh = dudahart2(data, clustering=km2$cluster, alpha=alpha)
+    if(dh$cluster1 & 1%in%krange == TRUE){
+        return(1)
+    }else{ # test more clusters only if duda-hart test is significant
+        sil = rep(-1,max(krange))
+        for(i in krange[krange!=1]){
+            km = kmeans(data, centers=i)
+            # compute silhouette value for i-cluster solution
+            silvalue = silhouette(km$cluster, 
+                                  dist=dist(data, 
+                                            method="euclidean"))[,"sil_width"]
+            sil[i] = round(mean(silvalue), 8)
+        }
+        # best solution has maximum silhouette value
+        return(which(sil==max(sil)))
     }
-    return(which(sil==max(sil)))
-  }
 }
 
 clustering = function(data=NA,method=c("pamk","hclust","kmeans"),k=5){
