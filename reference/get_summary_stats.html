@@ -33,7 +33,13 @@
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
-      <ul class="navbar-nav"></ul></div>
+      <ul class="navbar-nav"><li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/filippogambarota/clustersimulation/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul></div>
 
     
   </div>
@@ -41,7 +47,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>get_summary_stats</h1>
-      
+      <small class="dont-index">Source: <a href="https://github.com/filippogambarota/clustersimulation/blob/HEAD/R/utils.R" class="external-link"><code>R/utils.R</code></a></small>
       <div class="d-none name"><code>get_summary_stats.Rd</code></div>
     </div>
 
@@ -71,26 +77,26 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="sim_clust.html">sim_clust</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">100</span>, dmin <span class="op">=</span> <span class="fl">0.5</span>, rmin <span class="op">=</span> <span class="fl">0.3</span>, nind <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">get_summary_stats</span><span class="op">(</span><span class="va">X</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   x1          x2         x3          x4         x5         x6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mean     -0.28187584  0.17785839 -0.2130357 -0.12506539  0.1783428  0.2215316</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sd        1.06278076  1.03516274  1.0799463  1.00696458  0.8905749  1.0180220</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> min      -2.83706845 -2.05716304 -3.2905417 -2.75398844 -2.4108653 -2.6114543</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> max       2.99740543  2.74671936  2.4972503  1.92928910  3.2852218  2.1692085</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> skewness  0.04437192 -0.07110849 -0.1831057  0.01518748  0.2708073 -0.3627520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> kurtosi   0.39389126 -0.46595740  0.1346236 -0.54696123  0.6755935 -0.2433175</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> q25      -0.78403832 -0.44726562 -0.8879055 -0.84815445 -0.4021694 -0.2912585</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> q50      -0.34187073  0.05834985 -0.2376727 -0.09946812  0.1394136  0.2776101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> q75       0.25442634  0.89979113  0.5200177  0.58750436  0.7445179  0.9681556</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   x7         x8         x9        x10      group</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mean     -0.16293171 -0.1797810  0.1210338 -0.2088907  1.5000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sd        1.03689186  0.9183844  0.9297801  0.9765407  0.5025189</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> min      -3.16161657 -2.1924764 -1.4590119 -2.8510781  1.0000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> max       2.19854997  1.8776535  2.5118777  2.6345411  2.0000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> skewness  0.06057752  0.1001922  0.1798774  0.2592798  0.0000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> kurtosi  -0.22334407 -0.6232340 -0.8442241  0.3437211 -2.0199000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> q25      -0.96889156 -0.7431162 -0.6430204 -0.8329551  1.0000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> q50      -0.18039395 -0.2313281  0.1231972 -0.2608744  1.5000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> q75       0.48582853  0.4832960  0.7492528  0.4163605  2.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  x1         x2         x3         x4         x5         x6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mean      0.1682409 -0.4040130  0.1352947 -0.5121637  0.1857525 -0.4615449</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sd        1.0041404  1.0014558  1.0625789  1.1978689  1.0508353  1.0864968</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> min      -2.4441562 -2.6577464 -2.5328958 -2.8663350 -3.2401420 -3.1441381</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> max       2.0214983  1.6104838  3.6438712  2.0547329  2.5599693  2.2893938</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> skewness -0.0874203 -0.2611689  0.2339994  0.0455060 -0.4098007  0.1303589</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> kurtosi  -0.5932045 -0.5295454  0.4232866 -1.0009107  0.1577832 -0.3297165</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> q25      -0.5256486 -1.1089864 -0.4945285 -1.5019902 -0.6395774 -1.2264129</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> q50       0.1276540 -0.3514317  0.1816226 -0.5104905  0.2823469 -0.5467770</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> q75       0.8657621  0.2910405  0.8034076  0.3660634  0.8919663  0.3767416</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  x7           x8         x9         x10      group</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mean     -0.2728314  0.072561126  0.1420509 -0.27449530  1.5000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sd        1.0625625  1.161773234  1.0881075  1.00990976  0.5025189</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> min      -3.2837781 -3.200246835 -2.1210246 -3.08459948  1.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> max       2.3796649  3.695798344  2.2954721  2.25635819  2.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> skewness -0.3379429  0.131536095 -0.1754321 -0.05563565  0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> kurtosi   0.1775624  0.222682355 -0.8357194 -0.15310581 -2.0199000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> q25      -0.8812727 -0.702358555 -0.6570963 -0.92307705  1.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> q50      -0.1637824 -0.001962071  0.2090177 -0.26287552  1.5000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> q75       0.3350277  0.796574473  0.9233833  0.38018196  2.0000000</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
