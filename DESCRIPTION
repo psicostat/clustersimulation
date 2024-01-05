@@ -14,10 +14,8 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-Suggests: 
-    knitr,
-    rmarkdown,
-    testthat (>= 3.0.0)
+Depends:
+    R (>= 4.1.0)
 Imports:
     shiny,
     shinyhelper,
@@ -34,7 +32,11 @@ Imports:
     cli,
     ggplot2,
     utils
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
 Config/testthat/edition: 3
 VignetteBuilder: knitr
-URL: https://psicostat.github.io/clustersimulation/
-BugReports: https://psicostat.github.io/clustersimulation/issues
+URL: https://github.com/filippogambarota/clustersimulation
+BugReports: https://github.com/filippogambarota/clustersimulation/issues
