@@ -3,6 +3,59 @@ source("settings.R") # loading objects
 # .tol objects contains the tolerance values for numeric comparison
 # similarly to https://github.com/cran/metafor/blob/master/tests/testthat/settings.r
 
+test_that("prep_user_data works referencing to mtcars", {
+    actual <- prep_user_data(mtcars)
+    
+    dat <- mtcars
+    n <- nrow(dat)
+    nind <- ncol(dat)
+    dat <- .check_data(dat)
+    VCOV <- .get_vcov(dat)
+    Sigma <- VCOV$vcov
+    CorT <- VCOV$cor
+    mus <- apply(dat, 2, mean)
+    skews <- psych::skew(dat)
+    kurts <- psych::kurtosi(dat)
+    
+    expected <- list(
+        n = n,
+        nind = nind,
+        mus = mus,
+        Sigma = Sigma,
+        CorT = CorT,
+        skews = skews,
+        kurts = kurts
+    )
+    
+    actual <- actual[names(actual) %in% names(expected)]
+    
+    expect_equal(
+        actual,
+        expected,
+        ignore_attr = TRUE
+    )
+})
+
+test_that("get_summary_stat() works with mtcars", {
+    dat <- mtcars
+    means <- apply(dat, 2, mean)
+    sds <- apply(dat, 2, sd)
+    mins <- apply(dat, 2, min)
+    maxs <- apply(dat, 2, max)
+    skews <- apply(dat, 2, psych::skew)
+    kurts <- apply(dat, 2, psych::kurtosi)
+    q25s <- apply(dat, 2, quantile, 0.25)
+    q50s <- apply(dat, 2, quantile, 0.50)
+    q75s <- apply(dat, 2, quantile, 0.75)
+    
+    actual <- list(mean = means, sd = sds, min = mins, max = maxs, skew = skews, kurt = kurts, 
+                   q25 = q25s, q50 = q50s, q75 = q75s)
+    actual <- data.frame(do.call(rbind, actual))
+    expected <- get_summary_stats(dat)
+    
+    expect_equal(actual, get_summary_stats(dat), ignore_attr = TRUE)
+})
+
 test_that("gen_sigma() works with r = 0", {
     r <- 0
     p <- 5 # number of variables
@@ -149,4 +202,16 @@ test_that("sim_clust works with udata", {
     est_m_type1 <- apply(clustersimulation:::.get_inds(sim_from_udata_type1), 2, mean)
     expect_equal(abs(est_m_power), rep(d, p), info = "power (d = 5)", tolerance = .tol["gen"], ignore_attr = TRUE)
     expect_equal(abs(est_m_type1), rep(0, p), info = "type 1 (d = 0)", tolerance = .tol["gen"], ignore_attr = TRUE)
+})
+
+test_that(".get_vcov() works with mtcars", {
+    expected <- list(
+        vcov = cov(mtcars),
+        cor = cor(mtcars),
+        vi = apply(mtcars, 2, var)
+    )
+    
+    actual <- .get_vcov(mtcars)
+    
+    expect_equal(actual, expected)
 })
