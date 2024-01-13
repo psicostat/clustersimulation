@@ -77,26 +77,26 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="sim_clust.html">sim_clust</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">100</span>, dmin <span class="op">=</span> <span class="fl">0.5</span>, rmin <span class="op">=</span> <span class="fl">0.3</span>, nind <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">get_summary_stats</span><span class="op">(</span><span class="va">X</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    x1          x2          x3          x4          x5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mean     -0.219869895 -0.21213274 -0.11008704  0.26809607 -0.37312227</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sd        1.085736519  0.95896812  0.96080637  0.89695384  1.01414537</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> min      -3.886350389 -2.53281999 -3.42269020 -1.91139997 -2.84982605</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> max       1.796381371  2.77246728  2.06824154  2.29603938  1.97662449</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> skewness -0.429151925  0.03924592 -0.29561637  0.06423351  0.04167754</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> kurtosi  -0.008271004  0.17452028  0.40027750 -0.48998737 -0.30987670</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> q25      -0.959919002 -0.82190563 -0.75260003 -0.38195694 -1.02435886</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> q50      -0.137495019 -0.18961004 -0.08939608  0.20125344 -0.41173766</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> q75       0.599761827  0.33608445  0.49890045  1.02885613  0.26784435</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  x6         x7          x8         x9         x10      group</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mean     -0.1799911 -0.1962656  0.28681730 -0.2994537 -0.17051131  1.5000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sd        0.9268906  0.9952760  0.95297098  1.0558729  0.96823252  0.5025189</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> min      -2.4329398 -2.4052683 -2.03200994 -2.6045769 -2.43702861  1.0000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> max       2.1743475  2.3672723  2.33934142  2.1823567  2.51187491  2.0000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> skewness -0.1878010  0.1129082  0.08667221  0.1089482  0.19019764  0.0000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> kurtosi  -0.4731039 -0.4493069 -0.57300184 -0.7711314 -0.26207426 -2.0199000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> q25      -0.7899135 -0.9905953 -0.34698270 -1.1368743 -0.87056719  1.0000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> q50      -0.1345758 -0.1898925  0.20785203 -0.2353589 -0.06684256  1.5000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> q75       0.5689329  0.5212086  0.96139681  0.5866706  0.43210919  2.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   x1         x2          x3          x4          x5         x6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mean      0.11532265  0.1947641 -0.39809865  0.20538578  0.06254031  0.3190094</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sd        1.07081257  0.9766181  0.89270102  1.01288501  1.07701097  1.0777094</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> min      -3.20797371 -2.5080183 -2.57911178 -1.79338414 -2.40765448 -1.8638184</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> max       2.78090995  2.6636734  2.07049806  2.75925081  2.38446277  3.2322935</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> skewness -0.15189339  0.0665163  0.36819493  0.21307002 -0.02382439  0.3287224</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> kurtosi   0.06398198  0.1462915  0.24375290 -0.55058415 -0.20755161 -0.2946790</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> q25      -0.65433184 -0.4001773 -1.03439272 -0.47943475 -0.63512850 -0.4776002</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> q50       0.16719244  0.2141514 -0.43855493  0.03777461  0.14115309  0.2150271</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> q75       0.86009290  0.6443706  0.05970249  0.95773762  0.62955868  0.9852431</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   x7         x8          x9        x10      group</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mean      0.07814744  0.1328127 -0.29418792 -0.3398682  1.5000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sd        1.01376009  1.1580456  1.12780411  1.0089200  0.5025189</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> min      -2.11082250 -2.1540892 -2.86730897 -2.8184559  1.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> max       2.40425524  2.6716816  2.63682297  2.4722480  2.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> skewness  0.19024420  0.1454981  0.01263414  0.1609591  0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> kurtosi  -0.66501361 -0.6775193 -0.09412446 -0.2658460 -2.0199000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> q25      -0.80338369 -0.7530186 -0.91553091 -1.0783768  1.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> q50       0.02089320  0.1742949 -0.32074048 -0.3158301  1.5000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> q75       0.82166693  0.9249738  0.50300837  0.3334233  2.0000000</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
