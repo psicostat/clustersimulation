@@ -19,7 +19,7 @@ You can install the development version of clustersimulation from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("filippogambarota/clustersimulation")
+devtools::install_github("psicostat/clustersimulation")
 ```
 
 Sometimes a restart of R/R Studio could be required to correctly load
