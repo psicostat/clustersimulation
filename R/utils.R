@@ -211,7 +211,8 @@ sim_clust <- function(nclust = 1,
         sim$group <- rep(1, n1)
     }
     
-    names(sim) <- tolower(names(sim))
+    # names(sim) <- tolower(names(sim))
+    names(sim)[1:nind] <- paste0("x", 1:nind)
     
     if(debug){
         pop <- list(
